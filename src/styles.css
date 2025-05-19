@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --primary-color: #045256;
+        --primary-inverse-color: #0f7e82;
+        --secondary-color: #ddf7f8;
+        --tertiary-color: #9ab8ba;
+
+        --background-primary-color: #ffffff;
+        --background-secondary-color: #f0f0f0;
+        --background-tertiary-color: #d3d3d3;
+
+        --text-primary-color: #212121;
+        --text-secondary-color: #757575;
+        --text-primary-inverse-color: #ffffff;
+        --text-secondary-inverse-color: #bdbdbd;
+
+        --warning-color: #f2994a;
+        --warning-inverse-color: #ffcc9b;
+        --danger-color: #e74c3c;
+        --danger-inverse-color: #ffb3ae;
+    }
+
+    :root.dark-theme {
+        --primary-color: #0f7e82;
+        --primary-inverse-color: #045256;
+        --secondary-color: #102f30;
+        --tertiary-color: #3c5052;
+
+        --background-primary-color: #121212;
+        --background-secondary-color: #282828;
+        --background-tertiary-color: #575757;
+
+        --text-primary-color: #ffffff;
+        --text-secondary-color: #bdbdbd;
+        --text-primary-inverse-color: #212121;
+        --text-secondary-inverse-color: #757575;
+
+        --warning-color: #ffcc9b;
+        --warning-inverse-color: #f2994a;
+        --danger-color: #ffb3ae;
+        --danger-inverse-color: #e74c3c;
+    }
+}
+
+@layer utilities {
+    .tw-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .tw-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
+
+    .tw-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--text-secondary-color);
+        border-radius: 10px;
+    }
+
+    .tw-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color);
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

@@ -2,11 +2,15 @@
   "name": "angular-base",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox"
+    "merge-translations": "node scripts/merge-translations.js",
+    "postbuild": "npm run update-translations",
+    "postinstall": "npm list",
+    "prebuild": "npm run merge-translations",
+    "start": "ng serve",
+    "test": "ng test --browsers ChromeHeadless --watch=false",
+    "update-translations": "npm run merge-translations && node scripts/update-translations.js",
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +22,7 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@devlab-ys/angular-components": "0.0.9-development",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -33,7 +38,11 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "8.4.49",
+    "prettier": "3.3.3",
     "puppeteer": "^24.8.2",
-    "typescript": "~5.5.2"
+    "tailwindcss": "3.4.15",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.16.0"
   }
 }
